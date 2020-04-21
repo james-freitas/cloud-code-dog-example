@@ -1,0 +1,13 @@
+apiVersion: skaffold/v2beta1
+kind: Config
+metadata:
+  name: dog
+build:
+  artifacts:
+  - image: gcr.io/spring-project-273610/dog
+    jib: {}
+deploy:
+  kubectl:
+    manifests:
+    - deployment.yaml
+    - src/main/resources/service.yaml
